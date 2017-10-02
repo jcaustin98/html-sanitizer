@@ -198,10 +198,11 @@ class Sanitizer(object):
                         element.text)
 
             elif element.tag == 'br':
-                nx = element.getnext()
-                if nx is not None and nx.tag == 'br' and not element.tail:
-                    nx.drop_tag()
-                    continue
+                if 'br' not in self.separate:
+                    nx = element.getnext()
+                    if nx is not None and nx.tag == 'br' and not element.tail:
+                        nx.drop_tag()
+                        continue
 
                 # Drop <br/>'s at the beginning of parents.
                 parent = element.getparent()
