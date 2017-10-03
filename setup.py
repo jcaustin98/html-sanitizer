@@ -6,13 +6,13 @@ from setuptools import find_packages, setup
 
 setup(
     name='html-sanitizer',
-    version=__import__('html_sanitizer').__version__,
+    version='v1.3.2',
     description='HTML sanitizer',
     long_description=open(
         os.path.join(os.path.dirname(__file__), 'README.rst')).read(),
     author='Matthias Kestenholz',
     author_email='mk@feinheit.ch',
-    url='https://github.com/matthiask/html-sanitizer/',
+    url='https://github.com/RealMassive/html-sanitizer/',
     license='BSD License',
     platforms=['OS Independent'],
     packages=find_packages(),
