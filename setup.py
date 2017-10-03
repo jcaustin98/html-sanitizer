@@ -6,7 +6,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='html-sanitizer',
-    version='v1.3.2',
+    version=__import__('html_sanitizer').__version__,
     description='HTML sanitizer',
     long_description=open(
         os.path.join(os.path.dirname(__file__), 'README.rst')).read(),
