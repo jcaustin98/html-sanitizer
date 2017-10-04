@@ -62,6 +62,7 @@ DEFAULT_SETTINGS = {
         'sup',
         'hr',
     },
+    'allowed_first_tags': set(),
     'attributes': {
         'a': ('href', 'name', 'target', 'title', 'id'),
     },
@@ -208,10 +209,11 @@ class Sanitizer(object):
                 parent = element.getparent()
                 if (parent is not None and
                         element.getprevious() is None and
+                        'br' not in self.allowed_first_tags and
                         whitespace_re.match(parent.text or '')):  # noqa
                     element.drop_tag()
 
-            if not element.text:
+            if not element.text and 'br' not in self.allowed_first_tags:
                 first = list(element)[0] if list(element) else None
                 if first is not None and first.tag == 'br':
                     first.drop_tag()
